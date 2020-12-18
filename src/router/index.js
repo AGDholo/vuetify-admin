@@ -1,23 +1,47 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
+    name: "Dashboard",
+    component: () => import("../views/Dashboard"),
+    icon: "mdi-monitor-dashboard",
     path: "/",
-    name: "Home",
-    component: Home
+    open: true,
+    child: [
+      {
+        name: "Home",
+        component: () => import("../views/Dashboard"),
+        path: "home"
+      },
+      {
+        name: "Email",
+        component: () => import("../views/Dashboard"),
+        path: "email"
+      }
+    ]
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    name: "Data Table",
+    component: () => import("../views/Dashboard"),
+    icon: "mdi-table",
+    subtitle: "Components",
+    path: "/table",
+    open: false,
+    child: [
+      {
+        name: "Simple",
+        component: () => import("../views/Dashboard"),
+        path: "/simple"
+      },
+      {
+        name: "Search",
+        component: () => import("../views/Dashboard"),
+        path: "/search"
+      }
+    ]
   }
 ];
 
