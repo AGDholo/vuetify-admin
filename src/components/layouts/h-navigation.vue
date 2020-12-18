@@ -60,7 +60,7 @@
           <template v-for="(item, index) in accounts">
             <v-divider v-if="item.divider" :key="index" />
 
-            <v-list-item link :key="index">
+            <v-list-item link :key="item.title">
               <v-list-item-icon>
                 <v-icon small size="16">
                   {{ item.icon }}
