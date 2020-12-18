@@ -5,17 +5,8 @@
 
       <v-spacer />
 
-      <v-text-field
-        prepend-inner-icon="mdi-magnify"
-        :label="search.label"
-        dense
-        flat
-        filled
-        rounded
-        hide-details
-        single-line
-        background-color="h-appbar-search"
-        class="mx-1"
+      <h-search
+        url="https://cat-fact.herokuapp.com/facts/random?amount=10&animal_type="
       />
 
       <v-btn icon>
@@ -166,15 +157,13 @@
 <script>
 export default {
   components: {
-    "h-notification": () => import("./appbar/h-notification")
+    "h-notification": () => import("./appbar/h-notification"),
+    "h-search": () => import("./appbar/h-search")
   },
   data: () => ({
     drawer: {
       display: null,
       data: []
-    },
-    search: {
-      label: 'Search (press "ctrl + /" to focus)'
     },
     notifications: [
       {
