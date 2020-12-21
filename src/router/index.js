@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     name: "Dashboard",
-    component: () => import("../App"),
+    component: () => import("../layout/index"),
     icon: "mdi-monitor-dashboard",
     path: "/",
     open: true,
