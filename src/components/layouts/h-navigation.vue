@@ -90,8 +90,8 @@
       <v-list nav dense>
         <v-list-item-group
           color="primary"
-          v-for="(item, key) in drawer.data"
-          :key="key"
+          v-for="item in drawer.data"
+          :key="item.path"
         >
           <v-subheader v-if="item.subtitle" class="pa-1 mt-2 overline">
             {{ item.subtitle }}
@@ -122,8 +122,8 @@
             </template>
 
             <v-list-item
-              v-for="(i, k) in item.children"
-              :key="k"
+              v-for="i in item.children"
+              :key="i.path"
               link
               :to="item.path + i.path"
               exact
