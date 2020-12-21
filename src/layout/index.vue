@@ -22,6 +22,7 @@
 
 <script>
 export default {
+  name: "h-layout",
   components: {
     "h-navigation": () => import("../components/layouts/h-navigation")
   },

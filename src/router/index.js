@@ -14,7 +14,7 @@ const routes = [
       {
         name: "Home",
         component: () => import("../views/Dashboard/Home"),
-        path: "home"
+        path: "/"
       }
     ]
   },

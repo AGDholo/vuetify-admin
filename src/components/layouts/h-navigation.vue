@@ -82,10 +82,6 @@
             </v-list-item-title>
             <v-list-item-subtitle>agdholo@outlook.com</v-list-item-subtitle>
           </v-list-item-content>
-
-          <v-list-item-action>
-            <v-icon>mdi-menu-down</v-icon>
-          </v-list-item-action>
         </v-list-item>
       </v-list>
 
@@ -101,11 +97,24 @@
             {{ item.subtitle }}
           </v-subheader>
 
-          <v-list-group
-            v-if="item.children.length > 0"
-            :value="item.open"
-            :prepend-icon="item.icon"
+          <v-list-item
+            v-if="item.children.length <= 1"
+            :to="item.children[0].path"
+            exact
+            exact-active-class="primary--text"
           >
+            <v-list-item-icon>
+              <v-icon>
+                {{ item.icon }}
+              </v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title>{{ item.name }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-group v-else :value="item.open" :prepend-icon="item.icon">
             <template v-slot:activator>
               <v-list-item-title>
                 {{ item.name }}
