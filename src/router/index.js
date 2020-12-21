@@ -6,20 +6,15 @@ Vue.use(VueRouter);
 const routes = [
   {
     name: "Dashboard",
-    component: () => import("../views/Dashboard"),
+    component: () => import("../App"),
     icon: "mdi-monitor-dashboard",
     path: "/",
     open: true,
-    child: [
+    children: [
       {
         name: "Home",
-        component: () => import("../views/Dashboard"),
+        component: () => import("../views/Dashboard/Home"),
         path: "home"
-      },
-      {
-        name: "Email",
-        component: () => import("../views/Dashboard"),
-        path: "email"
       }
     ]
   },
@@ -30,7 +25,7 @@ const routes = [
     subtitle: "Components",
     path: "/table",
     open: false,
-    child: [
+    children: [
       {
         name: "Simple",
         component: () => import("../views/Dashboard"),
@@ -40,6 +35,26 @@ const routes = [
         name: "Search",
         component: () => import("../views/Dashboard"),
         path: "/search"
+      }
+    ]
+  },
+  {
+    name: "Auth Pages",
+    component: () => import("../views/Dashboard"),
+    icon: "mdi-clipboard-account-outline",
+    subtitle: "Pages",
+    path: "/auth",
+    open: false,
+    children: [
+      {
+        name: "Login",
+        component: () => import("../views/Dashboard"),
+        path: "/login"
+      },
+      {
+        name: "Register",
+        component: () => import("../views/Register"),
+        path: "/register"
       }
     ]
   }

@@ -102,7 +102,7 @@
           </v-subheader>
 
           <v-list-group
-            v-if="item.child.length > 1"
+            v-if="item.children.length > 0"
             :value="item.open"
             :prepend-icon="item.icon"
           >
@@ -113,7 +113,7 @@
             </template>
 
             <v-list-item
-              v-for="(i, k) in item.child"
+              v-for="(i, k) in item.children"
               :key="k"
               link
               :to="item.path + i.path"
