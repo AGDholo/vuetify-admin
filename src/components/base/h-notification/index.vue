@@ -29,14 +29,14 @@
         <template v-slot:default="{ item }">
           <v-list-item
             link
-            :disabled="item.outdated"
+            :readonly="item.outdated && readonly"
             @click="$emit('click:row', item)"
             :class="bodyColor"
           >
             <v-list-item-icon>
               <v-avatar
                 size="32"
-                :disabled="item.outdated"
+                :readonly="item.outdated"
                 :color="item.outdated ? 'grey' : 'primary'"
               >
                 <v-icon dark small>
@@ -107,6 +107,10 @@ export default {
       type: Boolean
     },
     loading: {
+      default: false,
+      type: Boolean
+    },
+    readonly: {
       default: false,
       type: Boolean
     }

@@ -4,12 +4,12 @@
       <h-notification :items="notifications" />
     </example>
 
-    <example title="Click Callback">
+    <example title="Click Callback" :readonly="false">
       <h-notification :items="notifications" @click:row="getClickData" />
     </example>
 
-    <example title="Height">
-      <h-notification :items="notifications" height="200" />
+    <example title="Readonly">
+      <h-notification :items="notifications" readonly />
     </example>
 
     <example title="Loading">
@@ -18,6 +18,10 @@
 
     <example title="No Data">
       <h-notification />
+    </example>
+
+    <example title="Height">
+      <h-notification :items="notifications" height="200" />
     </example>
 
     <example title="Outlined">
@@ -87,7 +91,9 @@ export default {
   }),
   methods: {
     getClickData(data) {
-      this.notifications[data.id - 1].outdated = true;
+      this.notifications[data.id - 1].outdated = !this.notifications[
+        data.id - 1
+      ].outdated;
     }
   }
 };
