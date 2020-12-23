@@ -13,7 +13,7 @@
     <h-navigation />
 
     <v-main>
-      <v-container fluid>
+      <v-container>
         <router-view :key="key" />
       </v-container>
     </v-main>

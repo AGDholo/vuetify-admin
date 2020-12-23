@@ -8,13 +8,13 @@ const routes = [
     name: "Dashboard",
     component: () => import("../layout/index"),
     icon: "mdi-monitor-dashboard",
-    path: "/",
+    path: "",
     open: true,
     children: [
       {
         name: "Home",
         component: () => import("../views/Dashboard/Home"),
-        path: "/"
+        path: ""
       }
     ]
   },
@@ -27,7 +27,7 @@ const routes = [
     open: false,
     children: [
       {
-        name: "Simple",
+        name: "Notification-Simple",
         component: () => import("../views/Components/Notification/Simple"),
         path: "simple"
       }
