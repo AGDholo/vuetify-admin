@@ -8,10 +8,6 @@
       <h-notification :items="notifications" @click:row="getClickData" />
     </example>
 
-    <example title="Readonly">
-      <h-notification :items="notifications" readonly />
-    </example>
-
     <example title="Loading">
       <h-notification :items="notifications" loading />
     </example>

@@ -29,16 +29,11 @@
         <template v-slot:default="{ item }">
           <v-list-item
             link
-            :readonly="item.outdated && readonly"
             @click="$emit('click:row', item)"
             :class="bodyColor"
           >
             <v-list-item-icon>
-              <v-avatar
-                size="32"
-                :readonly="item.outdated"
-                :color="item.outdated ? 'grey' : 'primary'"
-              >
+              <v-avatar size="32" :color="item.outdated ? 'grey' : 'primary'">
                 <v-icon dark small>
                   {{ item.outdated ? "mdi-bell-check-outline" : "mdi-bell" }}
                 </v-icon>
@@ -107,10 +102,6 @@ export default {
       type: Boolean
     },
     loading: {
-      default: false,
-      type: Boolean
-    },
-    readonly: {
       default: false,
       type: Boolean
     }

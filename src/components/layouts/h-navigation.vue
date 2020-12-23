@@ -151,18 +151,16 @@
 
       <template v-slot:append>
         <v-sheet elevation="4" class="text-center pa-4">
-          <div>
-            <v-btn link text class=" text-capitalize" small>
-              Documentation
-            </v-btn>
-          </div>
           <div class="mt-4">
             <v-btn
               color="orange"
               dark
               block
               class="text-capitalize download-btn"
+              href="https://github.com/AGDholo/vuetify-admin"
+              target="_blank"
             >
+              <v-icon left>mdi-github</v-icon>
               Download Now
             </v-btn>
           </div>
