@@ -11,7 +11,7 @@
           <v-btn
             class="text-capitalize font-weight-bold"
             small
-            color="grey lighten-3"
+            color="h-list-header-button"
           >
             See all
           </v-btn>

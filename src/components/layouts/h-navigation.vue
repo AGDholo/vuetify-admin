@@ -152,6 +152,12 @@
       <template v-slot:append>
         <v-sheet elevation="4" class="text-center pa-4">
           <div class="mt-4">
+            <v-switch
+              v-model="$vuetify.theme.dark"
+              inset
+              label="Theme Dark"
+            ></v-switch>
+
             <v-btn
               color="orange"
               dark
