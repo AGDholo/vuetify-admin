@@ -50,11 +50,6 @@ const routes = [
         name: "Login",
         component: () => import("../views/Dashboard"),
         path: "/login"
-      },
-      {
-        name: "Register",
-        component: () => import("../views/Register"),
-        path: "/register"
       }
     ]
   }

@@ -13,7 +13,7 @@
         <v-icon>mdi-apps</v-icon>
       </v-btn>
 
-      <v-menu offset-y left transition="slide-x-transition">
+      <v-menu offset-y left transition="slide-x-transition" min-width="400">
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon class="mr-1" v-bind="attrs" v-on="on">
             <v-badge
@@ -28,7 +28,7 @@
           </v-btn>
         </template>
 
-        <h-notification :data="notifications" />
+        <h-notification :items="notifications" />
       </v-menu>
 
       <v-menu offset-y left transition="slide-x-transition">
@@ -166,7 +166,7 @@
 <script>
 export default {
   components: {
-    "h-notification": () => import("./appbar/h-notification"),
+    "h-notification": () => import("../base/h-notification"),
     "h-search": () => import("./appbar/h-search")
   },
   data: () => ({
