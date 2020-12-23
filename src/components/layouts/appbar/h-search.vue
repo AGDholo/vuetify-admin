@@ -14,7 +14,7 @@
     filled
     flat
     prepend-inner-icon="mdi-magnify"
-    background-color="grey lighten-3"
+    background-color="h-appbar-search"
     @click:clear="clearSearch"
     @blur="clearSearch"
   >
