@@ -12,6 +12,10 @@
       <h-notification :items="notifications" loading />
     </example>
 
+    <example title="Hover">
+      <h-notification :items="notifications" hover />
+    </example>
+
     <example title="No Data">
       <h-notification />
     </example>

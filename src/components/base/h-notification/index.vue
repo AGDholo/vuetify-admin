@@ -30,7 +30,7 @@
           <v-list-item
             link
             @click="$emit('click:row', item)"
-            :class="bodyColor"
+            :class="{ bodyColor, 'h-list_hover': hover }"
           >
             <v-list-item-icon>
               <v-avatar size="32" :color="item.outdated ? 'grey' : 'primary'">
@@ -102,6 +102,10 @@ export default {
       type: Boolean
     },
     loading: {
+      default: false,
+      type: Boolean
+    },
+    hover: {
       default: false,
       type: Boolean
     }
