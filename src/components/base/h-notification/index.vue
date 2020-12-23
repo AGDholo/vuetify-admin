@@ -1,9 +1,9 @@
 <template>
-  <v-card>
-    <v-list three-line>
+  <v-card :outlined="outlined" :color="color">
+    <v-list three-line :color="color">
       <v-sheet
         class="h-sticky d-flex align-center justify-space-between"
-        color="white"
+        :color="headerColor"
       >
         <v-subheader class="font-weight-bold">Notifications</v-subheader>
 
@@ -18,12 +18,18 @@
         </div>
       </v-sheet>
       <v-virtual-scroll
+        v-if="items"
         :items="items"
         :item-height="itemHeight"
         :height="height"
       >
         <template v-slot:default="{ item }">
-          <v-list-item link :disabled="item.outdated">
+          <v-list-item
+            link
+            :disabled="item.outdated"
+            @click="$emit('click:row', item)"
+            :class="bodyColor"
+          >
             <v-list-item-icon>
               <v-avatar
                 size="32"
@@ -51,6 +57,12 @@
           </v-list-item>
         </template>
       </v-virtual-scroll>
+
+      <v-list-item v-else>
+        <v-list-item-title>
+          {{ noDataText }}
+        </v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-card>
 </template>
@@ -69,6 +81,27 @@ export default {
     itemHeight: {
       default: 88,
       type: Number
+    },
+    noDataText: {
+      default: "No Data",
+      type: String
+    },
+    outlined: {
+      default: false,
+      type: Boolean
+    },
+    color: {
+      type: String
+    },
+    headerColor: {
+      type: String
+    },
+    bodyColor: {
+      type: String
+    },
+    dark: {
+      default: false,
+      type: Boolean
     }
   }
 };

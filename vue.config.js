@@ -1,3 +1,12 @@
+const path = require("path");
+
 module.exports = {
-  transpileDependencies: ["vuetify"]
+  transpileDependencies: ["vuetify"],
+  configureWebpack: {
+    resolve: {
+      alias: {
+        "@": path.resolve("src")
+      }
+    }
+  }
 };

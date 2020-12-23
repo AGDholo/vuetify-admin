@@ -13,7 +13,13 @@
         <v-icon>mdi-apps</v-icon>
       </v-btn>
 
-      <v-menu offset-y left transition="slide-x-transition" min-width="400">
+      <v-menu
+        offset-y
+        left
+        transition="slide-x-transition"
+        min-width="400"
+        :close-on-content-click="false"
+      >
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon class="mr-1" v-bind="attrs" v-on="on">
             <v-badge
@@ -28,7 +34,10 @@
           </v-btn>
         </template>
 
-        <h-notification :items="notifications" />
+        <h-notification
+          :items="notifications"
+          @click:row="getClickedNotificationData"
+        />
       </v-menu>
 
       <v-menu offset-y left transition="slide-x-transition">
@@ -99,7 +108,7 @@
 
           <v-list-item
             v-if="item.children.length <= 1"
-            :to="item.children[0].path"
+            :to="`${item.path}/${item.children[0].path}`"
             exact
             exact-active-class="primary--text"
           >
@@ -176,6 +185,7 @@ export default {
     },
     notifications: [
       {
+        id: 1,
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
@@ -183,24 +193,28 @@ export default {
         outdated: true
       },
       {
+        id: 2,
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
         time: "4 min"
       },
       {
+        id: 3,
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
         time: "4 min"
       },
       {
+        id: 4,
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
         time: "4 min"
       },
       {
+        id: 5,
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
@@ -222,6 +236,9 @@ export default {
       this.$router.options.routes.forEach(route => {
         this.drawer.data.push(route);
       });
+    },
+    getClickedNotificationData(data) {
+      console.table(data.id);
     }
   },
   created() {

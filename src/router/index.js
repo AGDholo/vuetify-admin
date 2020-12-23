@@ -19,10 +19,24 @@ const routes = [
     ]
   },
   {
+    name: "Notification",
+    component: () => import("../layout/index"),
+    icon: "mdi-bell-outline",
+    subtitle: "Components",
+    path: "/notification",
+    open: false,
+    children: [
+      {
+        name: "Simple",
+        component: () => import("../views/Components/Notification/Simple"),
+        path: "simple"
+      }
+    ]
+  },
+  {
     name: "Data Table",
     component: () => import("../views/Dashboard"),
     icon: "mdi-table",
-    subtitle: "Components",
     path: "/table",
     open: false,
     children: [
