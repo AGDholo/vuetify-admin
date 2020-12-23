@@ -4,6 +4,10 @@
       <h-notification :items="notifications" />
     </example>
 
+    <example title="Click Callback">
+      <h-notification :items="notifications" @click:row="getClickData" />
+    </example>
+
     <example title="Height">
       <h-notification :items="notifications" height="200" />
     </example>
@@ -76,6 +80,11 @@ export default {
         time: "4 min"
       }
     ]
-  })
+  }),
+  methods: {
+    getClickData(data) {
+      alert(`ID: ${data.id}\nTitle: ${data.title}`);
+    }
+  }
 };
 </script>
