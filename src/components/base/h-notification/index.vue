@@ -25,9 +25,13 @@
         <template v-slot:default="{ item }">
           <v-list-item link :disabled="item.outdated">
             <v-list-item-icon>
-              <v-avatar size="32" color="primary">
+              <v-avatar
+                size="32"
+                :disabled="item.outdated"
+                :color="item.outdated ? 'grey' : 'primary'"
+              >
                 <v-icon dark small>
-                  {{ item.icon ?? "mdi-bell-alert-outline" }}
+                  {{ item.outdated ? "mdi-bell-check-outline" : "mdi-bell" }}
                 </v-icon>
               </v-avatar>
             </v-list-item-icon>
