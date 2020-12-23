@@ -56,34 +56,38 @@ export default {
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min"
+        time: "4 min",
+        outdated: false
       },
       {
         id: 3,
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min"
+        time: "4 min",
+        outdated: false
       },
       {
         id: 4,
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min"
+        time: "4 min",
+        outdated: false
       },
       {
         id: 5,
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min"
+        time: "4 min",
+        outdated: false
       }
     ]
   }),
   methods: {
     getClickData(data) {
-      alert(`ID: ${data.id}\nTitle: ${data.title}`);
+      this.notifications[data.id - 1].outdated = true;
     }
   }
 };
