@@ -5,6 +5,10 @@ module.exports = {
   },
   extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
   parserOptions: {
+    ecmaVersion: 12,
+    ecmaFeatures: {
+      jsx: true
+    },
     parser: "babel-eslint"
   },
   rules: {
