@@ -29,6 +29,10 @@
       <h-notification />
     </example>
 
+    <example title="Scrollbar on hover">
+      <h-notification :items="notifications" noScrollbar />
+    </example>
+
     <example title="Height">
       <h-notification :items="notifications" height="200" />
     </example>

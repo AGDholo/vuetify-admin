@@ -1,6 +1,6 @@
 <template>
   <v-card :outlined="outlined" :color="color">
-    <v-list three-line :color="color">
+    <v-list three-line :color="color" :class="{ 'h-scrollbar': noScrollbar }">
       <v-sheet
         class="h-sticky d-flex align-center justify-space-between"
         :color="headerColor"
@@ -106,6 +106,10 @@ export default {
       type: Boolean
     },
     hover: {
+      default: false,
+      type: Boolean
+    },
+    noScrollbar: {
       default: false,
       type: Boolean
     }

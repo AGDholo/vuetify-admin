@@ -1,0 +1,13 @@
+.v-list-item__action:first-child,
+.v-list-item__icon:first-child {
+  margin-right: 14px !important;
+}
+
+.h-list_hover {
+  &:hover {
+    box-shadow: 0 3px 15px -2px rgba(0,0,0,.12);
+    transform: translateY(-4px);
+  }
+
+  transition: box-shadow .2s,transform
+}
