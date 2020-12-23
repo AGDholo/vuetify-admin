@@ -1,6 +1,11 @@
 <template>
   <div>
-    <example title="Notification">
+    <example
+      title="Notification"
+      :description="
+        `Use the virtual scrolling feature for high performance purposes.`
+      "
+    >
       <h-notification :items="notifications" />
     </example>
 
@@ -10,6 +15,10 @@
 
     <example title="Loading">
       <h-notification :items="notifications" loading />
+    </example>
+
+    <example title="Outdated">
+      <h-notification :items="outdatedNotifications" />
     </example>
 
     <example title="Hover">
@@ -41,59 +50,64 @@
 </template>
 
 <script>
+const notifications = [
+  {
+    title: "Lorem ipsum dolor",
+    desc:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
+    time: "4 min",
+    outdated: false
+  }
+];
+
+const outdatedNotifications = [
+  {
+    title: "Lorem ipsum dolor",
+    desc:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
+    time: "4 min",
+    outdated: false
+  },
+  {
+    title: "Outdated Notification",
+    desc:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
+    time: "4 min",
+    outdated: true
+  },
+  {
+    title: "Lorem ipsum dolor",
+    desc:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
+    time: "4 min",
+    outdated: false
+  }
+];
+
 export default {
   components: {
     "h-notification": () => import("@/components/base/h-notification")
   },
-  data: () => ({
-    notifications: [
-      {
-        id: 1,
-        title: "Lorem ipsum dolor",
-        desc:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min",
-        outdated: true
-      },
-      {
-        id: 2,
-        title: "Lorem ipsum dolor",
-        desc:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min",
-        outdated: false
-      },
-      {
-        id: 3,
-        title: "Lorem ipsum dolor",
-        desc:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min",
-        outdated: false
-      },
-      {
-        id: 4,
-        title: "Lorem ipsum dolor",
-        desc:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min",
-        outdated: false
-      },
-      {
-        id: 5,
-        title: "Lorem ipsum dolor",
-        desc:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min",
-        outdated: false
-      }
-    ]
-  }),
+  computed: {
+    notifications() {
+      return [...new Array(100)].reduce(items => {
+        items.push(...notifications);
+
+        return items;
+      }, []);
+    },
+    outdatedNotifications() {
+      return [...new Array(33)].reduce(items => {
+        items.push(...outdatedNotifications);
+
+        return items;
+      }, []);
+    }
+  },
+  data: () => ({}),
   methods: {
     getClickData(data) {
-      this.notifications[data.id - 1].outdated = !this.notifications[
-        data.id - 1
-      ].outdated;
+      alert(` title: ${data.title} \n description ${data.desc}`);
     }
   }
 };
