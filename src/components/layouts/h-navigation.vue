@@ -176,35 +176,31 @@ export default {
     },
     notifications: [
       {
-        icon: "mdi-account",
+        title: "Lorem ipsum dolor",
+        desc:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
+        time: "4 min",
+        outdated: true
+      },
+      {
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
         time: "4 min"
       },
       {
-        icon: "mdi-account",
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
         time: "4 min"
       },
       {
-        icon: "mdi-account",
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
         time: "4 min"
       },
       {
-        icon: "mdi-account",
-        title: "Lorem ipsum dolor",
-        desc:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min"
-      },
-      {
-        icon: "mdi-account",
         title: "Lorem ipsum dolor",
         desc:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",

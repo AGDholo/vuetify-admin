@@ -23,11 +23,11 @@
         :height="height"
       >
         <template v-slot:default="{ item }">
-          <v-list-item link>
+          <v-list-item link :disabled="item.outdated">
             <v-list-item-icon>
               <v-avatar size="32" color="primary">
                 <v-icon dark small>
-                  {{ item.icon }}
+                  {{ item.icon ?? "mdi-bell-alert-outline" }}
                 </v-icon>
               </v-avatar>
             </v-list-item-icon>
