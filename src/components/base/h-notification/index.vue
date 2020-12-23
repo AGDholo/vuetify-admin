@@ -1,5 +1,5 @@
 <template>
-  <v-card :outlined="outlined" :color="color" :loading="loading">
+  <v-card :outlined="outlined" :color="color">
     <v-list three-line :color="color">
       <v-sheet
         class="h-sticky d-flex align-center justify-space-between"
@@ -17,6 +17,9 @@
           </v-btn>
         </div>
       </v-sheet>
+
+      <v-progress-linear indeterminate v-if="loading" />
+
       <v-virtual-scroll
         v-if="items"
         :items="items"
