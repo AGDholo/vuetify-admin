@@ -8,6 +8,10 @@
       <h-notification :items="notifications" height="200" />
     </example>
 
+    <example title="Loading">
+      <h-notification :items="notifications" loading />
+    </example>
+
     <example title="No Data">
       <h-notification />
     </example>

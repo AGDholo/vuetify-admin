@@ -1,5 +1,5 @@
 <template>
-  <v-card :outlined="outlined" :color="color">
+  <v-card :outlined="outlined" :color="color" :loading="loading">
     <v-list three-line :color="color">
       <v-sheet
         class="h-sticky d-flex align-center justify-space-between"
@@ -100,6 +100,10 @@ export default {
       type: String
     },
     dark: {
+      default: false,
+      type: Boolean
+    },
+    loading: {
       default: false,
       type: Boolean
     }
