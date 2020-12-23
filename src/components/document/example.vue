@@ -6,6 +6,10 @@
 
     <v-sheet color="primary" height="10" width="100" class="mt-n3" />
 
+    <p class="title">
+      {{ description }}
+    </p>
+
     <div class="mt-6">
       <slot />
     </div>
@@ -17,6 +21,9 @@ export default {
   props: {
     title: {
       required: true,
+      type: String
+    },
+    description: {
       type: String
     }
   }
