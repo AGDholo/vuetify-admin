@@ -1,27 +1,36 @@
 <template>
   <v-card :outlined="outlined" :color="color">
-    <v-list three-line :color="color" :class="{ 'h-scrollbar': noScrollbar }">
+    <v-list
+      three-line
+      :color="color"
+      :class="{ 'h-scrollbar': noScrollbar }"
+      class="pa-0 "
+    >
       <v-sheet
-        class="h-sticky d-flex align-center justify-space-between"
+        class="h-sticky d-flex align-center justify-space-between elevation-1 rounded-t"
         :color="headerColor"
       >
-        <v-subheader class="font-weight-bold">Notifications</v-subheader>
+        <v-subheader class="font-weight-bold">
+          <slot name="title">Notifications</slot>
+        </v-subheader>
 
         <div class="mr-1">
-          <v-btn
-            class="text-capitalize font-weight-bold"
-            small
-            color="h-list-header-button"
-          >
-            See all
-          </v-btn>
+          <slot name="action">
+            <v-btn
+              class="text-capitalize font-weight-bold"
+              small
+              color="h-list-header-button"
+            >
+              See all
+            </v-btn>
+          </slot>
         </div>
       </v-sheet>
 
       <v-progress-linear indeterminate v-if="loading" />
 
       <v-virtual-scroll
-        v-if="items"
+        v-if="items && items.length > 0"
         :items="items"
         :item-height="itemHeight"
         :height="height"

@@ -13,6 +13,20 @@
       <h-notification :items="notifications" @click:row="getClickData" />
     </example>
 
+    <example title="Slot">
+      <h-notification :items="outdatedNotifications">
+        <template v-slot:title>
+          Slot Title
+        </template>
+
+        <template v-slot:action>
+          <v-chip label small>
+            Slot Action
+          </v-chip>
+        </template>
+      </h-notification>
+    </example>
+
     <example title="Loading">
       <h-notification :items="notifications" loading />
     </example>
