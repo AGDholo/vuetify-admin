@@ -110,8 +110,10 @@ export default {
   },
   data: () => ({}),
   methods: {
-    getClickData(data) {
-      alert(` title: ${data.title} \n description ${data.desc}`);
+    getClickData(data, index) {
+      alert(
+        ` index: ${index} \n title: ${data.title} \n description ${data.desc}`
+      );
     }
   }
 };

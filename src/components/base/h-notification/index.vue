@@ -26,10 +26,10 @@
         :item-height="itemHeight"
         :height="height"
       >
-        <template v-slot:default="{ item }">
+        <template v-slot:default="{ item, index }">
           <v-list-item
             link
-            @click="$emit('click:row', item)"
+            @click="$emit('click:row', item, index)"
             :class="{ bodyColor, 'h-list_hover': hover }"
           >
             <v-list-item-icon>
