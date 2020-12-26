@@ -1,14 +1,14 @@
 <template>
-  <v-card :outlined="outlined" :color="color">
+  <v-card :color="color" :outlined="outlined">
     <v-list
-      three-line
-      :color="color"
       :class="{ 'h-scrollbar': noScrollbar }"
+      :color="color"
+      :three-line="threeLine"
       class="pa-0 "
     >
       <v-sheet
-        class="h-sticky d-flex align-center justify-space-between elevation-1 rounded-t"
         :color="headerColor"
+        class="h-sticky d-flex align-center justify-space-between elevation-1 rounded-t"
       >
         <v-subheader class="font-weight-bold">
           <slot name="title">Notifications</slot>
@@ -18,8 +18,8 @@
           <slot name="action">
             <v-btn
               class="text-capitalize font-weight-bold"
-              small
               color="h-list-header-button"
+              small
             >
               See all
             </v-btn>
@@ -27,22 +27,22 @@
         </div>
       </v-sheet>
 
-      <v-progress-linear indeterminate v-if="loading" />
+      <v-progress-linear v-if="loading" indeterminate />
 
       <v-virtual-scroll
         v-if="items && items.length > 0"
-        :items="items"
-        :item-height="itemHeight"
         :height="height"
+        :item-height="itemHeight"
+        :items="items"
       >
         <template v-slot:default="{ item, index }">
           <v-list-item
+            :class="{ bodyColor, 'h-list_hover': hover }"
             link
             @click="$emit('click:row', item, index)"
-            :class="{ bodyColor, 'h-list_hover': hover }"
           >
             <v-list-item-icon>
-              <v-avatar size="32" :color="item.outdated ? 'grey' : 'primary'">
+              <v-avatar :color="item.outdated ? 'grey' : 'primary'" size="32">
                 <v-icon dark small>
                   {{ item.outdated ? "mdi-bell-check-outline" : "mdi-bell" }}
                 </v-icon>
@@ -51,9 +51,9 @@
 
             <v-list-item-content>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
-              <v-list-item-subtitle class="caption">{{
-                item.desc
-              }}</v-list-item-subtitle>
+              <v-list-item-subtitle class="caption"
+                >{{ item.desc }}
+              </v-list-item-subtitle>
             </v-list-item-content>
 
             <v-list-item-action class="align-self-center">
@@ -81,13 +81,13 @@ export default {
       default: null,
       type: Array
     },
+    threeLine: {
+      default: false,
+      type: Boolean
+    },
     height: {
       default: "300",
       type: String
-    },
-    itemHeight: {
-      default: 88,
-      type: Number
     },
     noDataText: {
       default: "No Data",
@@ -121,6 +121,11 @@ export default {
     noScrollbar: {
       default: false,
       type: Boolean
+    }
+  },
+  computed: {
+    itemHeight() {
+      return this.threeLine ? "88" : "64";
     }
   }
 };

@@ -1,15 +1,15 @@
 <template>
   <div>
     <example
-      title="Notification"
       :description="
         `Use the virtual scrolling feature for high performance purposes.`
       "
+      title="Notification"
     >
       <h-notification :items="notifications" />
     </example>
 
-    <example title="Click Callback" :readonly="false">
+    <example :readonly="false" title="Click Callback">
       <h-notification :items="notifications" @click:row="getClickData" />
     </example>
 
@@ -44,24 +44,28 @@
     </example>
 
     <example title="Scrollbar on hover">
-      <h-notification :items="notifications" noScrollbar />
+      <h-notification :items="notifications" no-scrollbar />
     </example>
 
     <example title="Height">
       <h-notification :items="notifications" height="200" />
     </example>
 
+    <example title="Three Line">
+      <h-notification :items="notifications" three-line />
+    </example>
+
     <example title="Outlined">
-      <h-notification outlined :items="notifications" />
+      <h-notification :items="notifications" outlined />
     </example>
 
     <example title="Color">
       <h-notification
-        headerColor="cyan lighten-1"
-        bodyColor="cyan lighten-5"
         :items="notifications"
-        dark
+        body-color="cyan lighten-5"
         color="transparent"
+        dark
+        header-color="cyan lighten-1"
       />
     </example>
   </div>
