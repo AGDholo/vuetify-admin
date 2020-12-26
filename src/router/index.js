@@ -1,12 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import MainLayout from "../layout/index";
+import EmptyLayout from "../layout/empty";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     name: "Dashboard",
-    component: () => import("../layout/index"),
+    component: MainLayout,
     icon: "mdi-monitor-dashboard",
     path: "",
     open: true,
@@ -20,7 +22,7 @@ const routes = [
   },
   {
     name: "Notification",
-    component: () => import("../layout/index"),
+    component: MainLayout,
     icon: "mdi-bell-outline",
     subtitle: "Components",
     path: "/notification",
@@ -34,36 +36,22 @@ const routes = [
     ]
   },
   {
-    name: "Data Table",
-    component: () => import("../views/Dashboard"),
-    icon: "mdi-table",
-    path: "/table",
-    open: false,
-    children: [
-      {
-        name: "Simple",
-        component: () => import("../views/Dashboard"),
-        path: "/simple"
-      },
-      {
-        name: "Search",
-        component: () => import("../views/Dashboard"),
-        path: "/search"
-      }
-    ]
-  },
-  {
-    name: "Auth Pages",
-    component: () => import("../views/Dashboard"),
+    name: "Auth",
+    component: EmptyLayout,
     icon: "mdi-clipboard-account-outline",
     subtitle: "Pages",
     path: "/auth",
     open: false,
     children: [
       {
+        name: "Register",
+        component: () => import("../views/Pages/Auth/Register"),
+        path: "register"
+      },
+      {
         name: "Login",
-        component: () => import("../views/Dashboard"),
-        path: "/login"
+        component: () => import("../views/Pages/Auth/Login"),
+        path: "login"
       }
     ]
   }

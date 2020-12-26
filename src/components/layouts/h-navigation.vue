@@ -14,18 +14,18 @@
       </v-btn>
 
       <v-menu
-        offset-y
-        left
-        transition="slide-x-transition"
-        min-width="400"
         :close-on-content-click="false"
+        left
+        min-width="400"
+        offset-y
+        transition="slide-x-transition"
       >
         <template v-slot:activator="{ on, attrs }">
-          <v-btn icon class="mr-1" v-bind="attrs" v-on="on">
+          <v-btn v-bind="attrs" v-on="on" class="mr-1" icon>
             <v-badge
+              :content="notifications.length"
               bordered
               color=" blue"
-              :content="notifications.length"
               offset-x="10"
               offset-y="8"
             >
@@ -40,29 +40,29 @@
         />
       </v-menu>
 
-      <v-menu offset-y left transition="slide-x-transition">
+      <v-menu left offset-y transition="slide-x-transition">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
+          <v-btn v-bind="attrs" v-on="on" icon>
             <v-badge
-              dot
               bordered
               color="green"
               content="6"
+              dot
               offset-x="6"
               offset-y="6"
             >
-              <v-avatar size="24" color="grey"> </v-avatar>
+              <v-avatar color="grey" size="24"></v-avatar>
             </v-badge>
           </v-btn>
         </template>
 
-        <v-list min-width="48" width="140" nav dense>
+        <v-list dense min-width="48" nav width="140">
           <template v-for="(item, index) in accounts">
             <v-divider v-if="item.divider" :key="index" />
 
-            <v-list-item link :key="item.title">
+            <v-list-item :key="item.title" link>
               <v-list-item-icon>
-                <v-icon small size="16">
+                <v-icon size="16" small>
                   {{ item.icon }}
                 </v-icon>
               </v-list-item-icon>
@@ -76,7 +76,7 @@
       </v-menu>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer.display" app fixed class="elevation-1">
+    <v-navigation-drawer v-model="drawer.display" app class="elevation-1" fixed>
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
@@ -96,11 +96,11 @@
 
       <v-divider></v-divider>
 
-      <v-list nav dense>
+      <v-list dense nav>
         <v-list-item-group
-          color="primary"
           v-for="item in drawer.data"
           :key="item.path"
+          color="primary"
         >
           <v-subheader v-if="item.subtitle" class="pa-1 mt-2 overline">
             {{ item.subtitle }}
@@ -123,7 +123,7 @@
             </v-list-item-content>
           </v-list-item>
 
-          <v-list-group v-else :value="item.open" :prepend-icon="item.icon">
+          <v-list-group v-else :prepend-icon="item.icon" :value="item.open">
             <template v-slot:activator>
               <v-list-item-title>
                 {{ item.name }}
@@ -133,9 +133,9 @@
             <v-list-item
               v-for="i in item.children"
               :key="i.path"
-              link
-              :to="item.path + i.path"
+              :to="`${item.path}/${i.path}`"
               exact
+              link
             >
               <v-list-item-icon>
                 <v-icon>mdi-circle-medium</v-icon>
@@ -150,7 +150,7 @@
       </v-list>
 
       <template v-slot:append>
-        <v-sheet elevation="4" class="text-center pa-4">
+        <v-sheet class="text-center pa-4" elevation="4">
           <div class="mt-4">
             <v-switch
               v-model="$vuetify.theme.dark"
@@ -159,10 +159,10 @@
             ></v-switch>
 
             <v-btn
-              color="orange"
-              dark
               block
               class="text-capitalize download-btn"
+              color="orange"
+              dark
               href="https://github.com/AGDholo/vuetify-admin"
               target="_blank"
             >
