@@ -1,12 +1,12 @@
 <template>
   <div class="mb-6">
-    <h4 class="text-h4">
+    <h3 class="text-h3 font-weight-bold">
       {{ title }}
-    </h4>
+    </h3>
 
-    <v-sheet color="primary" height="10" width="100" class="mt-n3" />
+    <v-sheet class="mt-n3" color="primary" height="10" width="100" />
 
-    <p class="title">
+    <p class="text-h5">
       {{ description }}
     </p>
 
