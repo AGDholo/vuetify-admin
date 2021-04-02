@@ -102,8 +102,8 @@
           :key="item.path"
           color="primary"
         >
-          <v-subheader v-if="item.subtitle" class="pa-1 mt-2 overline">
-            {{ item.subtitle }}
+          <v-subheader v-if="item.props.subtitle" class="pa-1 mt-2 overline">
+            {{ item.props.subtitle }}
           </v-subheader>
 
           <v-list-item
@@ -114,7 +114,7 @@
           >
             <v-list-item-icon>
               <v-icon>
-                {{ item.icon }}
+                {{ item.props.icon }}
               </v-icon>
             </v-list-item-icon>
 

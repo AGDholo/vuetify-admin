@@ -16,16 +16,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    title: {
-      required: true,
-      type: String
-    },
-    description: {
-      type: String
-    }
-  }
-};
+<script lang="ts">
+import { Component, Prop, Vue } from "vue-property-decorator";
+
+@Component
+export default class Example extends Vue {
+  @Prop() private readonly title!: string;
+  @Prop({ default: null }) private readonly description!: string;
+}
 </script>
