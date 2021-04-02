@@ -20,18 +20,22 @@
   </v-app>
 </template>
 
-<script>
-export default {
-  name: "h-layout",
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import HNotification from "@/components/base/h-notification/index.vue";
+
+@Component({
+  name: "HLayout",
   components: {
-    "h-navigation": () => import("../components/layouts/h-navigation")
-  },
-  computed: {
-    key() {
-      return this.$route.path;
-    }
+    HNotification,
+    HNavigation: () => import("@/components/layouts/h-navigation.vue")
   }
-};
+})
+export default class HLayout extends Vue {
+  private get key() {
+    return this.$route.path;
+  }
+}
 </script>
 
 <style lang="scss" scoped>

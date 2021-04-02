@@ -71,7 +71,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import HNotification from "@/components/base/h-notification/index.vue";
+
 const notifications = [
   {
     title: "Lorem ipsum dolor",
@@ -106,33 +109,33 @@ const outdatedNotifications = [
   }
 ];
 
-export default {
+@Component({
+  name: "NotificationSimple",
   components: {
-    "h-notification": () => import("@/components/base/h-notification")
-  },
-  computed: {
-    notifications() {
-      return [...new Array(100)].reduce(items => {
-        items.push(...notifications);
-
-        return items;
-      }, []);
-    },
-    outdatedNotifications() {
-      return [...new Array(33)].reduce(items => {
-        items.push(...outdatedNotifications);
-
-        return items;
-      }, []);
-    }
-  },
-  data: () => ({}),
-  methods: {
-    getClickData(data, index) {
-      alert(
-        ` index: ${index} \n title: ${data.title} \n description ${data.desc}`
-      );
-    }
+    HNotification
   }
-};
+})
+export default class NotificationSimple extends Vue {
+  private get notifications() {
+    return [...new Array(100)].reduce(items => {
+      items.push(...notifications);
+
+      return items;
+    }, []);
+  }
+
+  private get outdatedNotifications() {
+    return [...new Array(33)].reduce(items => {
+      items.push(...outdatedNotifications);
+
+      return items;
+    }, []);
+  }
+
+  private getClickData(data, index) {
+    alert(
+      ` index: ${index} \n title: ${data.title} \n description ${data.desc}`
+    );
+  }
+}
 </script>

@@ -1,7 +1,8 @@
 import Vue from "vue";
+import Example from "@/components/document/example.vue";
 
 const components = {
-  example: () => import("@/components/document/example")
+  example: Example
 };
 
 Object.entries(components).forEach(([name, component]) =>

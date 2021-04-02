@@ -52,7 +52,7 @@
             <v-list-item-content>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
               <v-list-item-subtitle class="caption"
-                >{{ item.desc }}
+              >{{ item.desc }}
               </v-list-item-subtitle>
             </v-list-item-content>
 
@@ -74,59 +74,30 @@
   </v-card>
 </template>
 
-<script>
-export default {
-  props: {
-    items: {
-      default: null,
-      type: Array
-    },
-    threeLine: {
-      default: false,
-      type: Boolean
-    },
-    height: {
-      default: "300",
-      type: String
-    },
-    noDataText: {
-      default: "No Data",
-      type: String
-    },
-    outlined: {
-      default: false,
-      type: Boolean
-    },
-    color: {
-      type: String
-    },
-    headerColor: {
-      type: String
-    },
-    bodyColor: {
-      type: String
-    },
-    dark: {
-      default: false,
-      type: Boolean
-    },
-    loading: {
-      default: false,
-      type: Boolean
-    },
-    hover: {
-      default: false,
-      type: Boolean
-    },
-    noScrollbar: {
-      default: false,
-      type: Boolean
-    }
-  },
-  computed: {
-    itemHeight() {
-      return this.threeLine ? "88" : "64";
-    }
+<script lang="ts">
+
+import { Component, Prop, Vue } from "vue-property-decorator";
+
+@Component({
+  name: "HNotification"
+})
+
+export default class HNotification extends Vue {
+  @Prop({ default: undefined }) protected readonly items: Array<{ title: string; outdated: boolean, desc: string, time: string }> | undefined;
+  @Prop({ default: false }) protected readonly threeLine!: boolean;
+  @Prop({ default: "300" }) protected readonly height!: string;
+  @Prop({ default: "No Data" }) protected readonly noDataText!: string;
+  @Prop({ default: false }) protected readonly outlined!: boolean;
+  @Prop() protected readonly color!: string;
+  @Prop() protected readonly headerColor!: string;
+  @Prop() protected readonly bodyColor!: string;
+  @Prop({ default: false }) protected readonly dark!: boolean;
+  @Prop({ default: false }) protected readonly loading!: boolean;
+  @Prop({ default: false }) protected readonly hover!: boolean;
+  @Prop({ default: false }) protected readonly noScrollbar!: boolean;
+
+  public get itemHeight() {
+    return this.threeLine ? "88" : "64";
   }
-};
+}
 </script>
