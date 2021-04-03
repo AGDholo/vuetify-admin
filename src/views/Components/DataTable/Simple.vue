@@ -1,6 +1,8 @@
 <template>
   <div>
-    <example description="Smart and editable user forms" title="DataTable(WIP)">
+    <example
+      description="Smart editable user forms that automatically enable editable components for all content and call back the required data, greatly improving the user experience."
+      title="DataTable(WIP)">
       <v-data-table
         :headers="headers"
         :items="desserts"
@@ -16,7 +18,10 @@
                 :return-value.sync="item[header.value]"
                 large
                 persistent
-                @save="onSave()"
+                @save="onSave({
+                  meta: {column: idx, line: key},
+                  data: {origin: items[idx], edit: {value: item[header.value]}}
+                  })"
               > {{ item[header.value] }}
                 <template v-slot:input>
                   <div class="pt-2">
@@ -56,9 +61,13 @@ export default class Datatable extends Vue {
 
   private dataTableLoading = false;
 
-  private onSave() {
+  private onSave(info) {
     this.dataTableLoading = true;
     setTimeout(() => this.dataTableLoading = false, 1000);
+    alert(`Your edit the info of table: \n
+    column: ${info.meta.column} \n
+    line: ${info.meta.line} \n
+    value: ${info.data.edit.value}`);
   }
 }
 </script>
