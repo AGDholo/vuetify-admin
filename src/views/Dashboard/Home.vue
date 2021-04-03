@@ -13,10 +13,25 @@
             </v-card-text>
 
             <v-skeleton-loader
-              v-for="i in 3"
-              :key="i"
               boilerplate
-              type="list-item-avatar-three-line"
+              max-height="200"
+              type="list-item-avatar-three-line, list-item-avatar-three-line, list-item-avatar-three-line"
+            />
+          </v-card>
+        </v-col>
+
+        <v-col cols="12" lg="4" md="6" xl="3">
+          <v-card :to="{ name: 'Data-Table-Simple' }">
+            <v-card-title>DataTable</v-card-title>
+
+            <v-card-text>
+              <v-sheet class="mt-n7" color="primary" height="8" width="100" />
+            </v-card-text>
+
+            <v-skeleton-loader
+              boilerplate
+              max-height="200"
+              type="table-heading, table-tbody"
             />
           </v-card>
         </v-col>

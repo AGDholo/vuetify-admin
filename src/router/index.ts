@@ -52,7 +52,7 @@ export default new VueRouter({
       path: "/data-table",
       children: [
         {
-          name: "Simple",
+          name: "Data-Table-Simple",
           component: () => import("@/views/Components/DataTable/Simple.vue"),
           path: "simple"
         }
