@@ -23,7 +23,6 @@
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",
     "@vue/eslint-config-typescript": "^7.0.0",
-    "D": "^1.0.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.6",
