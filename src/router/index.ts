@@ -43,6 +43,22 @@ export default new VueRouter({
       ]
     },
     {
+      name: "DataTable",
+      component: HLayout,
+      props: {
+        icon: "mdi-table",
+        open: true
+      },
+      path: "/data-table",
+      children: [
+        {
+          name: "Simple",
+          component: () => import("@/views/Components/DataTable/Simple.vue"),
+          path: "simple"
+        }
+      ]
+    },
+    {
       name: "Auth",
       component: EmptyLayout,
       props: {
