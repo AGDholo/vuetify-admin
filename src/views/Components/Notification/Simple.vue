@@ -36,7 +36,7 @@
     </example>
 
     <example title="Hover">
-      <h-notification :items="notifications" hover />
+      <h-notification :hover="true" :items="notifications" />
     </example>
 
     <example title="No Data">

@@ -19,6 +19,7 @@
             <v-btn
               class="text-capitalize font-weight-bold"
               color="h-list-header-button"
+              depressed
               small
             >
               See all
