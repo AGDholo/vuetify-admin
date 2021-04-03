@@ -19,14 +19,16 @@
                 @save="onSave()"
               > {{ item[header.value] }}
                 <template v-slot:input>
-                  <v-text-field
-                    v-model="item[header.value]"
-                    dense
-                    hide-details
-                    label="Edit"
-                    outlined
-                    single-line
-                  ></v-text-field>
+                  <div class="pt-2">
+                    <v-text-field
+                      v-model="item[header.value]"
+                      dense
+                      hide-details
+                      label="Edit"
+                      outlined
+                      single-line
+                    ></v-text-field>
+                  </div>
                 </template>
               </v-edit-dialog>
             </td>
