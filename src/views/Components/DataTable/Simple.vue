@@ -8,20 +8,31 @@
         :items="desserts"
         :items-per-page="5"
         :loading="dataTableLoading"
-        class="elevation-1"
+        show-select
       >
+        <template v-slot:header.data-table-select>
+          <v-checkbox off-icon="mdi-checkbox-multiple-blank-circle-outline"
+                      on-icon="mdi-checkbox-multiple-marked-circle" @click="selectAll()" />
+        </template>
         <template v-slot:body="{ items, headers }">
           <tbody>
-          <tr v-for="(item,idx) in items" :key="idx">
-            <td v-for="(header,key) in headers" :key="key">
+          <tr v-for="(item,idx) in items" :key="idx" class="h-list_hover">
+            <td v-for="(header,key) in headers" :key="key" class="align-center ">
+              <v-checkbox v-if="header.value === 'data-table-select'"
+                          v-model="selectData"
+                          :value="idx"
+                          multiple
+                          off-icon="mdi-checkbox-blank-circle-outline" on-icon="mdi-checkbox-marked-circle-outline" />
+
               <v-edit-dialog
+                v-else
                 :return-value.sync="item[header.value]"
                 large
                 persistent
                 @save="onSave({
-                  meta: {column: idx, line: key},
-                  data: {origin: items[idx], edit: {value: item[header.value]}}
-                  })"
+                    meta: {column: idx, line: key},
+                    data: {origin: items[idx], edit: {value: item[header.value]}}
+                    })"
               > {{ item[header.value] }}
                 <template v-slot:input>
                   <div class="pt-2">
@@ -36,6 +47,11 @@
                   </div>
                 </template>
               </v-edit-dialog>
+            </td>
+            <td>
+              <v-btn color="error" icon>
+                <v-icon>mdi-delete-forever-outline</v-icon>
+              </v-btn>
             </td>
           </tr>
           </tbody>
@@ -61,6 +77,14 @@ export default class Datatable extends Vue {
 
   private dataTableLoading = false;
 
+
+  private selectData: any = [];
+
+  private selectAll() {
+
+    console.log(this.selectData);
+  }
+
   private onSave(info) {
     this.dataTableLoading = true;
     setTimeout(() => this.dataTableLoading = false, 1000);
@@ -68,6 +92,10 @@ export default class Datatable extends Vue {
     column: ${info.meta.column} \n
     line: ${info.meta.line} \n
     value: ${info.data.edit.value}`);
+  }
+
+  private sildeClick() {
+    console.log(123);
   }
 }
 </script>
