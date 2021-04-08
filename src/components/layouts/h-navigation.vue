@@ -151,24 +151,26 @@
 
       <template v-slot:append>
         <v-sheet class="text-center pa-4" elevation="4">
-          <div class="mt-4">
+          <div class="mt-4 justify-center d-flex flex-column">
             <v-switch
               v-model="$vuetify.theme.dark"
               inset
               label="Theme Dark"
             ></v-switch>
 
-            <v-btn
-              block
-              class="text-capitalize download-btn"
-              color="orange"
-              dark
-              href="https://github.com/AGDholo/vuetify-admin"
-              target="_blank"
-            >
-              <v-icon left>mdi-github</v-icon>
-              Download Now
-            </v-btn>
+            <v-badge bordered color="error" icon="mdi-alpha" overlap>
+              <v-btn
+                block
+                class="text-capitalize download-btn"
+                color="orange"
+                dark
+                href="https://github.com/AGDholo/vuetify-admin"
+                target="_blank"
+              >
+                <v-icon left>mdi-github</v-icon>
+                Download Now
+              </v-btn>
+            </v-badge>
           </div>
         </v-sheet>
       </template>
