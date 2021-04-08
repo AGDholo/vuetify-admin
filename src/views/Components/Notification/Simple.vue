@@ -28,7 +28,7 @@
     </example>
 
     <example title="Loading">
-      <h-notification :items="notifications" loading />
+      <h-notification :items="notifications" :loading="true" />
     </example>
 
     <example title="Outdated">
@@ -44,7 +44,7 @@
     </example>
 
     <example title="Scrollbar on hover">
-      <h-notification :items="notifications" no-scrollbar />
+      <h-notification :items="notifications" :no-scrollbar="true" />
     </example>
 
     <example title="Height">
@@ -52,11 +52,11 @@
     </example>
 
     <example title="Three Line">
-      <h-notification :items="notifications" three-line />
+      <h-notification :items="notifications" :three-line="true" />
     </example>
 
     <example title="Outlined">
-      <h-notification :items="notifications" outlined />
+      <h-notification :items="notifications" :outlined="true" />
     </example>
 
     <example title="Color">
