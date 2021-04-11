@@ -6,6 +6,10 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+  mounted() {
+    const dark = localStorage.getItem("dark");
+    this.$vuetify.theme.dark = dark === "true";
+  }
 };
 </script>

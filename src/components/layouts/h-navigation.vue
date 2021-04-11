@@ -156,6 +156,7 @@
               v-model="$vuetify.theme.dark"
               inset
               label="Theme Dark"
+              @click="switchTheme()"
             ></v-switch>
 
             <v-badge bordered color="error" icon="mdi-alpha" overlap>
@@ -245,6 +246,9 @@ export default {
     },
     getClickedNotificationData(data) {
       console.table(data.id);
+    },
+    switchTheme() {
+      localStorage.setItem("dark", this.$vuetify.theme.dark.toString());
     }
   },
   created() {
