@@ -59,7 +59,7 @@
           <template v-for="(item, index) in accounts">
             <v-divider v-if="item.divider" :key="index" />
 
-            <v-list-item :key="item.title" link>
+            <v-list-item :key="item.title" :to="item.to" link>
               <v-list-item-icon>
                 <v-icon size="16" small>
                   {{ item.icon }}
@@ -240,7 +240,7 @@ export default class HNavigation extends Vue {
     { icon: "mdi-account-box-outline", title: "Profile" },
     { icon: "mdi-email-outline", title: "Email" },
     { icon: "mdi-format-list-checks", title: "Todo" },
-    { divider: true, icon: "mdi-logout", title: "Logout" }
+    { divider: true, icon: "mdi-logout", title: "Logout", to: "/auth/login" }
   ];
 
   protected routes() {
