@@ -122,7 +122,7 @@
             </v-list-item-content>
           </v-list-item>
 
-          <v-list-group v-else :prepend-icon="item.icon" :value="item.open">
+          <v-list-group v-else :prepend-icon="item.props.icon" :value="item.props.open">
             <template v-slot:activator>
               <v-list-item-title>
                 {{ item.name }}
@@ -196,7 +196,6 @@ export default class HNavigation extends Vue {
     display: true,
     data: <Array<RouteConfig>>[]
   };
-
   protected notifications = [
     {
       id: 1,
@@ -235,7 +234,6 @@ export default class HNavigation extends Vue {
       time: "4 min"
     }
   ];
-
   protected accounts = [
     { icon: "mdi-account-box-outline", title: "Profile" },
     { icon: "mdi-email-outline", title: "Email" },

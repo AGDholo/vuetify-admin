@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app id="vadmin">
     <v-system-bar app>
       <v-spacer></v-spacer>
 

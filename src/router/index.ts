@@ -61,7 +61,7 @@ const routes = <Array<RouteConfig>>[
     props: {
       icon: "mdi-clipboard-account-outline",
       subtitle: "Pages",
-      open: false
+      open: true
     },
 
     path: "/auth",
