@@ -36,7 +36,6 @@
 
         <h-notification
           :items="notifications"
-          @click:row="getClickedNotificationData"
         />
       </v-menu>
 
@@ -179,82 +178,90 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import HNotification from "@/components/base/h-notification/index.vue";
+import HSearch from "@/components/layouts/appbar/h-search.vue";
+import { RouteConfig } from "vue-router";
+
+@Component({
+  name: "HNavigation",
   components: {
-    "h-notification": () => import("../base/h-notification"),
-    "h-search": () => import("./appbar/h-search")
-  },
-  data: () => ({
-    drawer: {
-      display: null,
-      data: []
-    },
-    notifications: [
-      {
-        id: 1,
-        title: "Lorem ipsum dolor",
-        desc:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min",
-        outdated: true
-      },
-      {
-        id: 2,
-        title: "Lorem ipsum dolor",
-        desc:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min"
-      },
-      {
-        id: 3,
-        title: "Lorem ipsum dolor",
-        desc:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min"
-      },
-      {
-        id: 4,
-        title: "Lorem ipsum dolor",
-        desc:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min"
-      },
-      {
-        id: 5,
-        title: "Lorem ipsum dolor",
-        desc:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
-        time: "4 min"
-      }
-    ],
-    accounts: [
-      { icon: "mdi-account-box-outline", title: "Profile" },
-      { icon: "mdi-email-outline", title: "Email" },
-      { icon: "mdi-format-list-checks", title: "Todo" },
-      { divider: true, icon: "mdi-logout", title: "Logout" }
-    ]
-  }),
-  methods: {
-    toggleDrawer() {
-      this.drawer.display = !this.drawer.display;
-    },
-    getRoutes() {
-      this.$router.options.routes.forEach(route => {
-        this.drawer.data.push(route);
-      });
-    },
-    getClickedNotificationData(data) {
-      console.table(data.id);
-    },
-    switchTheme() {
-      localStorage.setItem("dark", this.$vuetify.theme.dark.toString());
-    }
-  },
-  created() {
-    this.getRoutes();
+    HNotification,
+    HSearch
   }
-};
+})
+export default class HNavigation extends Vue {
+  protected drawer = {
+    display: true,
+    data: <Array<RouteConfig>>[]
+  };
+
+  protected notifications = [
+    {
+      id: 1,
+      title: "Lorem ipsum dolor",
+      desc:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
+      time: "4 min",
+      outdated: true
+    },
+    {
+      id: 2,
+      title: "Lorem ipsum dolor",
+      desc:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
+      time: "4 min"
+    },
+    {
+      id: 3,
+      title: "Lorem ipsum dolor",
+      desc:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
+      time: "4 min"
+    },
+    {
+      id: 4,
+      title: "Lorem ipsum dolor",
+      desc:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
+      time: "4 min"
+    },
+    {
+      id: 5,
+      title: "Lorem ipsum dolor",
+      desc:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, repudiandae?",
+      time: "4 min"
+    }
+  ];
+
+  protected accounts = [
+    { icon: "mdi-account-box-outline", title: "Profile" },
+    { icon: "mdi-email-outline", title: "Email" },
+    { icon: "mdi-format-list-checks", title: "Todo" },
+    { divider: true, icon: "mdi-logout", title: "Logout" }
+  ];
+
+  protected routes() {
+    return this.$router.options.routes?.forEach(route => {
+      this.drawer.data.push(route);
+    });
+  }
+
+  protected toggleDrawer() {
+    this.drawer.display = !this.drawer.display;
+  }
+
+  protected switchTheme() {
+    localStorage.setItem("dark", this.$vuetify.theme.dark.toString());
+  }
+
+  protected created() {
+    this.routes();
+  }
+}
+
 </script>
 
 <style lang="scss">
