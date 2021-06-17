@@ -2,7 +2,7 @@
   <div>
     <example
       description="Smart editable user forms that automatically enable editable components for all content and call back the required data, greatly improving the user experience."
-      title="DataTable(WIP)">
+      title="DataTable(Suspended development)">
       <v-data-table
         :headers="headers"
         :items="desserts"

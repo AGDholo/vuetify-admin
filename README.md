@@ -4,6 +4,8 @@ Vuetify enhanced components, providing out-of-the-box high-performance advanced 
 
 The project is a work in progress, currently in alpha.
 
+Angular Version: https://ngm.heroui.net/
+
 ![image](https://user-images.githubusercontent.com/13300332/114274306-5770bf00-9a50-11eb-809b-db64bcd90e88.png)
 
 ## Project setup
