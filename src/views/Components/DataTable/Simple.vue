@@ -93,9 +93,5 @@ export default class Datatable extends Vue {
     line: ${info.meta.line} \n
     value: ${info.data.edit.value}`);
   }
-
-  private sildeClick() {
-    console.log(123);
-  }
 }
 </script>
